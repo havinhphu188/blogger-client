@@ -61,7 +61,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "stateful-authen-client:build"
+            "browserTarget": "stateful-authen-client:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
