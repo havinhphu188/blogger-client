@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { WallComponent } from './wall/wall.component';
 import {InputTextModule} from 'primeng/inputtext';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -13,8 +15,10 @@ import {InputTextModule} from 'primeng/inputtext';
   ],
   imports: [
     BrowserModule,
+    ButtonModule,
     HttpClientModule,
-    InputTextModule
+    InputTextModule,
+    InputTextareaModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

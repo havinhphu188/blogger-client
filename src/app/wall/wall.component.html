@@ -1,7 +1,16 @@
 <div>
-  <label for="float-input-invalid">Title</label>
-  <input id="float-input-invalid" type="text" pInputText>
+  <label class="margin" for="title">Title</label>
+  <input class="margin" id="title" type="text" pInputText>
 </div>
+<div>
+  <label class="margin" for="content">Content</label>
+  <textarea class="margin txt-content" id="content" type="text" pInputTextarea></textarea>
+</div>
+<div class="margin">
+  <p-button label="Submit"></p-button>
+</div>
+
+
 <div class="articles" >
   <div class="article" *ngFor="let article of articles">
     <div>{{article.id}}</div>
