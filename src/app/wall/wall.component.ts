@@ -9,6 +9,8 @@ import {Observable} from 'rxjs';
 })
 export class WallComponent implements OnInit {
   articles: IArticle[];
+  txtTitle: string;
+  txtContent: string;
 
   constructor(private http: HttpClient) { }
 

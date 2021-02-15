@@ -1,10 +1,13 @@
 <div>
   <label class="margin" for="title">Title</label>
-  <input class="margin" id="title" type="text" pInputText>
+  <input class="margin"
+         id="title" type="text" pInputText [(ngModel)]="txtTitle">
 </div>
 <div>
   <label class="margin" for="content">Content</label>
-  <textarea class="margin txt-content" id="content" type="text" pInputTextarea></textarea>
+  <textarea class="margin txt-content"
+            id="content" type="text" pInputTextarea [(ngModel)]="txtContent">
+  </textarea>
 </div>
 <div class="margin">
   <p-button label="Submit"></p-button>

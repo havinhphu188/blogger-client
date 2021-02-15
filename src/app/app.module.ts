@@ -7,6 +7,7 @@ import { WallComponent } from './wall/wall.component';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {ButtonModule} from 'primeng/button';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {ButtonModule} from 'primeng/button';
     HttpClientModule,
     InputTextModule,
     InputTextareaModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
