@@ -24,7 +24,10 @@ export class WallComponent implements OnInit {
   }
 
   onDelete(id: number): void {
-    this.wallService.deleteArticle(id).subscribe();
+    this.wallService.deleteArticle(id).subscribe(() => {
+      const deletedItemIndex = this.articles.findIndex((element) => element.id === id);
+      this.articles.splice(deletedItemIndex, 1);
+    });
   }
 }
 
