@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {IArticle} from '../model/article';
+import {WallService} from './wall.service';
 
 @Component({
   selector: 'app-wall',
@@ -12,27 +12,19 @@ export class WallComponent implements OnInit {
   txtTitle: string;
   txtContent: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private wallService: WallService) {}
 
   ngOnInit(): void {
-    this.getArticles().subscribe((data: IArticle[]) => this.articles = data);
+    this.wallService.getArticles().subscribe((data: IArticle[]) => this.articles = data);
   }
 
-  getArticles(): Observable<IArticle[]>{
-    return this.http.get<IArticle[]>('api/article/all');
+  onSubmit(): void {
+    this.wallService.postArticle(this.txtTitle, this.txtContent)
+              .subscribe((data) => this.articles.push(data));
   }
 
-  postArticle(): void {
-    this.http.post<IArticle>('api/article', {
-      title: this.txtTitle,
-      content: this.txtContent
-    }).subscribe((data) => this.articles.push(data));
+  onDelete(id: number): void {
+    this.wallService.deleteArticle(id).subscribe();
   }
-
 }
 
-interface IArticle{
-  id: number;
-  title: string;
-  content: string;
-}

@@ -10,15 +10,21 @@
   </textarea>
 </div>
 <div class="margin">
-  <p-button label="Submit" (click)="postArticle()"></p-button>
+  <p-button label="Submit" (click)="onSubmit()"></p-button>
 </div>
 
 
 <div class="articles" >
   <div class="article" *ngFor="let article of articles">
-    <div>{{article.id}}</div>
-    <div>{{article.title}}</div>
-    <div>{{article.content}}</div>
+    <div class="article-detail">
+      <div>{{article.id}}</div>
+      <div>{{article.title}}</div>
+      <div>{{article.content}}</div>
+    </div>
+    <div class="article-controler">
+      <p-button label="Delete" (click)="onDelete(article.id)"></p-button>
+    </div>
+
   </div>
 </div>
 
