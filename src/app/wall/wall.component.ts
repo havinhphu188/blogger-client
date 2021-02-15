@@ -22,6 +22,13 @@ export class WallComponent implements OnInit {
     return this.http.get<IArticle[]>('api/article/all');
   }
 
+  postArticle(): void {
+    this.http.post<IArticle>('api/article', {
+      title: this.txtTitle,
+      content: this.txtContent
+    }).subscribe((data) => this.articles.push(data));
+  }
+
 }
 
 interface IArticle{
