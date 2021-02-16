@@ -12,6 +12,7 @@ import {FormsModule} from '@angular/forms';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {LoadingInterceptor} from './interceptor/loading-interceptor';
 import {ToastModule} from 'primeng/toast';
+import {MessageService} from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {ToastModule} from 'primeng/toast';
     ToastModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    MessageService
   ],
   bootstrap: [AppComponent]
 })
