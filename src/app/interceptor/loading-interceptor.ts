@@ -8,7 +8,7 @@ import {
 import { finalize } from 'rxjs/operators';
 
 import {Observable, of} from 'rxjs';
-import {LoadingService} from '../service/loading.service';
+import {LoadingService} from '../common-service/loading.service';
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {

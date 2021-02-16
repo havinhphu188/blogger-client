@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {IArticle} from '../model/article';
+import {IArticle} from '../../model/article';
 import {WallService} from './wall.service';
 
 @Component({
