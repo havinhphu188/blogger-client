@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {LoadingService} from './common-service/loading.service';
-import {MessageService} from 'primeng/api';
+import {LoadingService} from './service/common-service/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +7,5 @@ import {MessageService} from 'primeng/api';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(public loadingService: LoadingService, private messageService: MessageService) { }
-
-  showSuccess(): void {
-    this.messageService.add({severity: 'success', summary: 'Success', detail: 'Message Content'});
-  }
-
+  constructor(public loadingService: LoadingService) { }
 }

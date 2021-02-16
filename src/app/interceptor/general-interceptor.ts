@@ -3,17 +3,15 @@ import {
   HttpRequest,
   HttpHandler,
   HttpInterceptor,
-  HttpResponse, HttpEvent, HttpErrorResponse
-} from '@angular/common/http';
-import {catchError, finalize, tap} from 'rxjs/operators';
-
-import {Observable, of, throwError} from 'rxjs';
-import {LoadingService} from '../common-service/loading.service';
+  HttpEvent, HttpErrorResponse} from '@angular/common/http';
+import {catchError, finalize} from 'rxjs/operators';
+import {Observable, throwError} from 'rxjs';
+import {LoadingService} from '../service/common-service/loading.service';
 import {MessageService} from 'primeng/api';
 
-
+// Show spinner loading, toast error on requestFail.
 @Injectable()
-export class LoadingInterceptor implements HttpInterceptor {
+export class GeneralInterceptor implements HttpInterceptor {
   private totalRequests = 0;
 
   constructor(private loadingService: LoadingService,
@@ -26,7 +24,7 @@ export class LoadingInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         this.messageService.add({severity: 'error', summary: 'error', detail: 'error'});
-        return throwError('somethingbad');
+        return throwError(error);
       }),
       finalize(() => {
         this.totalRequests--;
@@ -36,6 +34,4 @@ export class LoadingInterceptor implements HttpInterceptor {
       })
     );
   }
-
-
 }

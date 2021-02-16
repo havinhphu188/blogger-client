@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {IArticle} from '../../model/article';
-import {WallService} from './wall.service';
+import {WallService} from '../../service/wall/wall.service';
 
 @Component({
   selector: 'app-wall',
