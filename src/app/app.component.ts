@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {LoadingService} from './service/loading.service';
 
 
 @Component({
@@ -11,7 +12,8 @@ import {Observable} from 'rxjs';
 export class AppComponent {
   title = 'stateful-authen-client';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              public loadingService: LoadingService) { }
 
   onSave(): void{
     this.title = 'clicked';
