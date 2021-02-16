@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -10,6 +11,7 @@ import {ButtonModule} from 'primeng/button';
 import {FormsModule} from '@angular/forms';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {LoadingInterceptor} from './interceptor/loading-interceptor';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {LoadingInterceptor} from './interceptor/loading-interceptor';
     InputTextModule,
     InputTextareaModule,
     FormsModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    BrowserAnimationsModule,
+    ToastModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
