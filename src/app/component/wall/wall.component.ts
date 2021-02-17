@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import {IArticle} from '../../model/article';
 import {WallService} from '../../service/wall/wall.service';
+import {DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
+import {AddArticleDialogComponent} from '../add-article-dialog/add-article-dialog.component';
 
 @Component({
   selector: 'app-wall',
   templateUrl: './wall.component.html',
-  styleUrls: ['./wall.component.css']
+  styleUrls: ['./wall.component.css'],
+  providers: [DialogService]
 })
 export class WallComponent implements OnInit {
   articles: IArticle[];
   txtTitle: string;
   txtContent: string;
 
-  constructor(private wallService: WallService) {}
+  ref: DynamicDialogRef;
+
+  constructor(private wallService: WallService, public dialogService: DialogService) {}
 
   ngOnInit(): void {
     this.wallService.getArticles().subscribe((data: IArticle[]) => this.articles = data);
@@ -29,5 +34,14 @@ export class WallComponent implements OnInit {
       this.articles.splice(deletedItemIndex, 1);
     });
   }
+
+  showDialog(): void {
+    this.ref = this.dialogService.open(AddArticleDialogComponent, {header: 'add new article'
+    });
+
+    this.ref.onClose.subscribe(() => console.log('xxx'));
+  }
+
+
 }
 
