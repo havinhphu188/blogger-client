@@ -7,6 +7,8 @@ import {DynamicDialogRef} from 'primeng/dynamicdialog';
   styleUrls: ['./add-article-dialog.component.css']
 })
 export class AddArticleDialogComponent implements OnInit {
+  title: string;
+  content: string;
 
   constructor(public ref: DynamicDialogRef) { }
 

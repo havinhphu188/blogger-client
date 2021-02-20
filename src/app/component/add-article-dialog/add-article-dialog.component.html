@@ -1,2 +1,14 @@
-<p>add-article-dialog works!</p>
-<p-button (click)="closeDialog()">Close Dialog</p-button>
+<div class="grid-container">
+    <label class="label" for="title">Title</label>
+    <input class="txtTitle" id="title" type="text" pInputText [(ngModel)]="title"/>
+
+    <label class="label" for="content">Content</label>
+    <textarea class="txtContent" id="content" type="text" pInputTextarea [(ngModel)]="content"></textarea>
+
+    <div class="btnSave" >
+      <p-button (click)="closeDialog()">Close Dialog</p-button>
+    </div>
+
+</div>
+
+
