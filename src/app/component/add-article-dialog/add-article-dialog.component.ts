@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DynamicDialogRef} from 'primeng/dynamicdialog';
 import {WallService} from '../../service/wall/wall.service';
-import {IArticle} from "../../model/article";
+import {IArticle} from '../../model/article';
 
 @Component({
   selector: 'app-add-article-dialog',

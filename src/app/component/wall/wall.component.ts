@@ -35,8 +35,8 @@ export class WallComponent implements OnInit {
     });
   }
 
-  showDialog(): void {
-    this.ref = this.dialogService.open(AddArticleDialogComponent, {header: 'add new article'
+  showAddArticleDialog(): void {
+    this.ref = this.dialogService.open(AddArticleDialogComponent, {header: 'Add New Article'
     });
 
     this.ref.onClose.subscribe((newArticle: IArticle) => {
