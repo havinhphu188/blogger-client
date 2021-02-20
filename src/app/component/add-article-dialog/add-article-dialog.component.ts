@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DynamicDialogRef} from 'primeng/dynamicdialog';
+import {WallService} from '../../service/wall/wall.service';
 
 @Component({
   selector: 'app-add-article-dialog',
@@ -10,12 +11,17 @@ export class AddArticleDialogComponent implements OnInit {
   title: string;
   content: string;
 
-  constructor(public ref: DynamicDialogRef) { }
+  constructor(public ref: DynamicDialogRef, private wallService: WallService) { }
 
   ngOnInit(): void {
   }
 
-  closeDialog(): void {
-    this.ref.close();
+  save(): void {
+    this.wallService.postArticle(this.title, this.content).subscribe(
+      () => {
+        this.ref.close();
+      }
+    );
+
   }
 }
