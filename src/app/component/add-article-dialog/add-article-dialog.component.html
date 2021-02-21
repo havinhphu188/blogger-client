@@ -1,22 +1,28 @@
 <div class="grid-container">
-    <label class="label" for="title">Title</label>
-    <input class="txtTitle" id="title" type="text" required="required" pInputText [(ngModel)]="title"/>
-
-    <label class="label" for="txtContent">Content</label>
-    <div class="field">
+  <label class="label" for="title">Title</label>
+  <div class="field">
+    <input class="txtTitle" id="title" type="text" required="required" pInputText #txtTitle="ngModel" [(ngModel)]="title"/>
+    <div *ngIf="txtTitle.invalid && (txtTitle.dirty || txtTitle.touched)">
+      <small id="txtTitle-error" class="p-error" *ngIf="txtTitle.errors.required">
+        Can not empty
+      </small>
+    </div>
+  </div>
+  <label class="label" for="txtContent">Content</label>
+  <div class="field">
       <textarea class="txtContent" id="txtContent" type="text"
-                   required="required" pInputTextarea
-                   [(ngModel)]="content" #txtContent="ngModel" aria-describedby="txtContent-error"></textarea>
-      <div *ngIf="txtContent.invalid && (txtContent.dirty || txtContent.touched)">
-        <small id="txtContent-error" class="p-error" *ngIf="txtContent.errors.required">
-          Content is required
-        </small>
-      </div>
+                required="required" pInputTextarea
+                [(ngModel)]="content" #txtContent="ngModel" aria-describedby="txtContent-error"></textarea>
+    <div *ngIf="txtContent.invalid && (txtContent.dirty || txtContent.touched)">
+      <small id="txtContent-error" class="p-error" *ngIf="txtContent.errors.required">
+        Can not empty
+      </small>
     </div>
+  </div>
 
-    <div class="btnSave">
-      <p-button (click)="save()">Close Dialog</p-button>
-    </div>
+  <div class="btnSave">
+    <p-button (click)="save()">Close Dialog</p-button>
+  </div>
 
 </div>
 
