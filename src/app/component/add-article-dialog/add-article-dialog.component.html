@@ -1,11 +1,20 @@
 <div class="grid-container">
     <label class="label" for="title">Title</label>
-    <input class="txtTitle" id="title" type="text" pInputText [(ngModel)]="title"/>
+    <input class="txtTitle" id="title" type="text" required="required" pInputText [(ngModel)]="title"/>
 
-    <label class="label" for="content">Content</label>
-    <textarea class="txtContent" id="content" type="text" pInputTextarea [(ngModel)]="content"></textarea>
+    <label class="label" for="txtContent">Content</label>
+    <div class="field">
+      <textarea class="txtContent" id="txtContent" type="text"
+                   required="required" pInputTextarea
+                   [(ngModel)]="content" #txtContent="ngModel" aria-describedby="txtContent-error"></textarea>
+      <div *ngIf="txtContent.invalid && (txtContent.dirty || txtContent.touched)">
+        <small id="txtContent-error" class="p-error" *ngIf="txtContent.errors.required">
+          Content is required
+        </small>
+      </div>
+    </div>
 
-    <div class="btnSave" >
+    <div class="btnSave">
       <p-button (click)="save()">Close Dialog</p-button>
     </div>
 
