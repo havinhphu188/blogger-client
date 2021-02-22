@@ -9,8 +9,8 @@ import {FormsModule} from '@angular/forms';
 import {GeneralInterceptor} from './interceptor/general-interceptor';
 import {MessageService} from 'primeng/api';
 import {PrimengModule} from '../primeng/primeng.module';
-import {AddArticleDialogComponent} from './component/add-article-dialog/add-article-dialog.component';
-import { FieldErrorMsgComponent } from './component/field-error-msg/field-error-msg.component';
+import {AddArticleDialogComponent} from './sub-component/add-article-dialog/add-article-dialog.component';
+import { FieldErrorMsgComponent } from './sub-component/field-error-msg/field-error-msg.component';
 
 @NgModule({
   declarations: [

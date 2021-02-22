@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {IArticle} from '../../model/article';
 import {WallService} from '../../service/wall/wall.service';
 import {DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
-import {AddArticleDialogComponent} from '../add-article-dialog/add-article-dialog.component';
+import {AddArticleDialogComponent} from '../../sub-component/add-article-dialog/add-article-dialog.component';
 
 @Component({
   selector: 'app-wall',
