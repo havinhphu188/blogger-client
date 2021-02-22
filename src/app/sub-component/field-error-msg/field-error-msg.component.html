@@ -1,5 +1,5 @@
 <div *ngIf="fieldRef.invalid && (fieldRef.dirty || fieldRef.touched)">
   <small id="txtTitle-error" class="p-error" *ngIf="fieldRef.errors.required">
-    Can not empty
+    {{errorMsg}}
   </small>
 </div>
