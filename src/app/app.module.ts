@@ -11,13 +11,15 @@ import {MessageService} from 'primeng/api';
 import {PrimengModule} from '../primeng/primeng.module';
 import {AddArticleDialogComponent} from './sub-component/add-article-dialog/add-article-dialog.component';
 import { FieldErrorMsgComponent } from './sub-component/field-error-msg/field-error-msg.component';
+import { SubmitIfValidDirective } from './directive/submit-if-valid.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     WallComponent,
     AddArticleDialogComponent,
-    FieldErrorMsgComponent
+    FieldErrorMsgComponent,
+    SubmitIfValidDirective
   ],
   imports: [
     BrowserModule,

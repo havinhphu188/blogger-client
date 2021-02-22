@@ -8,10 +8,12 @@ import {NgModel} from '@angular/forms';
 })
 export class FieldErrorMsgComponent implements OnInit {
   @Input() fieldRef: NgModel;
+  errorMsg: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.errorMsg = 'This field can not be left empty';
   }
 
 }
