@@ -10,12 +10,14 @@ import {GeneralInterceptor} from './interceptor/general-interceptor';
 import {MessageService} from 'primeng/api';
 import {PrimengModule} from '../primeng/primeng.module';
 import {AddArticleDialogComponent} from './component/add-article-dialog/add-article-dialog.component';
+import { FieldErrorMsgComponent } from './component/field-error-msg/field-error-msg.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WallComponent,
-    AddArticleDialogComponent
+    AddArticleDialogComponent,
+    FieldErrorMsgComponent
   ],
   imports: [
     BrowserModule,
