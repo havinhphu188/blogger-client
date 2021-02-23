@@ -12,6 +12,7 @@ import {PrimengModule} from '../primeng/primeng.module';
 import {AddArticleDialogComponent} from './sub-component/add-article-dialog/add-article-dialog.component';
 import { FieldErrorMsgComponent } from './sub-component/field-error-msg/field-error-msg.component';
 import { SubmitIfValidDirective } from './directive/submit-if-valid.directive';
+import { EditArticleDialogComponent } from './sub-component/edit-article-dialog/edit-article-dialog.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SubmitIfValidDirective } from './directive/submit-if-valid.directive';
     WallComponent,
     AddArticleDialogComponent,
     FieldErrorMsgComponent,
-    SubmitIfValidDirective
+    SubmitIfValidDirective,
+    EditArticleDialogComponent
   ],
   imports: [
     BrowserModule,

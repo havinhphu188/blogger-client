@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IArticle} from '../../model/article';
 import {WallService} from '../../service/wall/wall.service';
 import {DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
 import {AddArticleDialogComponent} from '../../sub-component/add-article-dialog/add-article-dialog.component';
+import {EditArticleDialogComponent} from '../../sub-component/edit-article-dialog/edit-article-dialog.component';
 
 @Component({
   selector: 'app-wall',
@@ -17,35 +18,46 @@ export class WallComponent implements OnInit {
 
   ref: DynamicDialogRef;
 
-  constructor(private wallService: WallService, public dialogService: DialogService) {}
+  constructor(private wallService: WallService, public dialogService: DialogService) {
+  }
 
   ngOnInit(): void {
     this.wallService.getArticles().subscribe((data: IArticle[]) => this.articles = data);
   }
 
-  onSubmit(): void {
-    this.wallService.postArticle(this.txtTitle, this.txtContent)
-              .subscribe((data) => this.articles.push(data));
-  }
-
-  onDelete(id: number): void {
-    this.wallService.deleteArticle(id).subscribe(() => {
-      const deletedItemIndex = this.articles.findIndex((element) => element.id === id);
-      this.articles.splice(deletedItemIndex, 1);
+  onDelete(viewIndex: number): void {
+    const selectedArticle = this.articles[viewIndex];
+    this.wallService.deleteArticle(selectedArticle.id).subscribe(() => {
+      this.articles.splice(viewIndex, 1);
     });
   }
 
   showAddArticleDialog(): void {
-    this.ref = this.dialogService.open(AddArticleDialogComponent, {header: 'Add New Article'
+    this.ref = this.dialogService.open(AddArticleDialogComponent, {
+      header: 'Add New Article'
     });
 
     this.ref.onClose.subscribe((newArticle: IArticle) => {
-      if (newArticle !== undefined){
+      if (newArticle !== undefined) {
         this.articles.push(newArticle);
       }
     });
   }
 
 
+  onEdit(viewIndex: number): void {
+    const selectedArticle = this.articles[viewIndex];
+    this.ref = this.dialogService
+      .open(EditArticleDialogComponent, {
+        header: 'Edit Article',
+        data: selectedArticle
+      });
+
+    this.ref.onClose.subscribe((newArticle: IArticle) => {
+      if (newArticle !== undefined){
+        this.articles.splice(viewIndex, 1, newArticle);
+      }
+    });
+  }
 }
 

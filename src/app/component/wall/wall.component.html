@@ -5,14 +5,15 @@
 </div>
 
 <div class="articles" >
-  <div class="article" *ngFor="let article of articles">
+  <div class="article" *ngFor="let article of articles; index as i">
     <div class="article-detail">
       <div>{{article.id}}</div>
       <div>{{article.title}}</div>
       <div>{{article.content}}</div>
     </div>
     <div class="article-controller">
-      <p-button label="Delete" (click)="onDelete(article.id)"></p-button>
+      <button pButton class="btnControl" label="Edit" (click)="onEdit(i)"></button>
+      <button pButton class="btnControl" label="Delete" (click)="onDelete(i)"></button>
     </div>
 
   </div>

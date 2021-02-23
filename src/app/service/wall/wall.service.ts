@@ -20,6 +20,10 @@ export class WallService {
     });
   }
 
+  updateArticle(article: IArticle): Observable<IArticle>{
+    return this.http.put<IArticle>(`api/article/${article.id}`, article);
+  }
+
   deleteArticle(id: number): Observable<any> {
     return this.http.delete(`api/article/${id}`);
   }

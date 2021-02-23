@@ -1,0 +1,25 @@
+<form>
+  <div class="grid-container">
+    <label class="label" for="title">Title</label>
+    <div class="field">
+      <input class="txtTitle" id="title" type="text" required="required"
+             pInputText #titleRef="ngModel" name="title"
+             [(ngModel)]="article.title">
+      <app-field-error-msg [fieldRef]="titleRef"></app-field-error-msg>
+
+    </div>
+    <label class="label" for="txtContent">Content</label>
+    <div class="field">
+      <textarea class="txtContent" id="txtContent" type="text"
+                required="required" pInputTextarea name="content"
+                [(ngModel)]="article.content" #contentRef="ngModel"></textarea>
+      <app-field-error-msg [fieldRef]="contentRef"></app-field-error-msg>
+    </div>
+
+    <div class="btnSave">
+      <p-button (appSubmitIfValid)="save()">Save Article</p-button>
+    </div>
+  </div>
+</form>
+
+

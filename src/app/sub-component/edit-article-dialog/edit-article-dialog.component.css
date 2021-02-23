@@ -1,0 +1,33 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btnSave {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+}
+
+.txtTitle {
+  width: 300px;
+}
+
+.txtContent {
+  width: 300px;
+  height: 200px;
+  resize: none;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}

@@ -20,3 +20,8 @@
 .article-controller {
   width: 80px;
 }
+
+.btnControl{
+  width: 60px;
+  margin: 2px;
+}
