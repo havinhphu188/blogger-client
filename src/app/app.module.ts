@@ -13,6 +13,7 @@ import {AddArticleDialogComponent} from './sub-component/add-article-dialog/add-
 import { FieldErrorMsgComponent } from './sub-component/field-error-msg/field-error-msg.component';
 import { SubmitIfValidDirective } from './directive/submit-if-valid.directive';
 import { EditArticleDialogComponent } from './sub-component/edit-article-dialog/edit-article-dialog.component';
+import { AppRoutingModule } from './module/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EditArticleDialogComponent } from './sub-component/edit-article-dialog/
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    PrimengModule
+    PrimengModule,
+    AppRoutingModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: GeneralInterceptor, multi: true },
