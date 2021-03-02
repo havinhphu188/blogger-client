@@ -8,7 +8,7 @@ import { WallComponent } from './component/wall/wall.component';
 import {FormsModule} from '@angular/forms';
 import {GeneralInterceptor} from './interceptor/general-interceptor';
 import {MessageService} from 'primeng/api';
-import {PrimengModule} from '../primeng/primeng.module';
+import {PrimengModule} from './module/primeng.module';
 import {AddArticleDialogComponent} from './sub-component/add-article-dialog/add-article-dialog.component';
 import { FieldErrorMsgComponent } from './sub-component/field-error-msg/field-error-msg.component';
 import { SubmitIfValidDirective } from './directive/submit-if-valid.directive';
