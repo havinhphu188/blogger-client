@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DynamicDialogConfig, DynamicDialogRef} from 'primeng/dynamicdialog';
 import {IArticle} from '../../model/article';
 import {WallService} from '../../service/wall/wall.service';
-import * as cloneDeep from 'lodash/cloneDeep';
+import cloneDeep from 'lodash/cloneDeep';
 
 @Component({
   selector: 'app-edit-article-dialog',

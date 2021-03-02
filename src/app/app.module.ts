@@ -14,6 +14,7 @@ import { FieldErrorMsgComponent } from './sub-component/field-error-msg/field-er
 import { SubmitIfValidDirective } from './directive/submit-if-valid.directive';
 import { EditArticleDialogComponent } from './sub-component/edit-article-dialog/edit-article-dialog.component';
 import { AppRoutingModule } from './module/app-routing.module';
+import { LoginComponent } from './component/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AppRoutingModule } from './module/app-routing.module';
     AddArticleDialogComponent,
     FieldErrorMsgComponent,
     SubmitIfValidDirective,
-    EditArticleDialogComponent
+    EditArticleDialogComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
