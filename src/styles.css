@@ -2,3 +2,23 @@
 @import url('../node_modules/primeng/resources/themes/bootstrap4-dark-blue/theme.css');
 @import url('https://primefaces.org/primeng/showcase/styles.1e2e6ea35b78c13146e3.css');
 
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.centered-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.centered-horizontal {
+  display: flex;
+  justify-content: center;
+}
+
+.margin-vertical-sm{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
