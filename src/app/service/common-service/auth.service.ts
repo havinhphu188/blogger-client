@@ -1,13 +1,21 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  login(): void{
-    localStorage.setItem('isLogin', 'true');
+  login(username: string, password: string): void{
+    this.http.post<IToken>('api/authenticate', {
+      username,
+      password
+    }).subscribe((resp) => {
+      localStorage.setItem('isLogin', 'true');
+      localStorage.setItem('jwtToken', resp.token);
+    });
+
   }
 
   logout(): void{
@@ -17,4 +25,8 @@ export class AuthService {
   getIsLogin(): boolean{
     return localStorage.getItem('isLogin') === 'true';
   }
+}
+
+interface IToken {
+  token: string;
 }
