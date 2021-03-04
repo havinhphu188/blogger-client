@@ -15,6 +15,8 @@ import { SubmitIfValidDirective } from './directive/submit-if-valid.directive';
 import { EditArticleDialogComponent } from './sub-component/edit-article-dialog/edit-article-dialog.component';
 import { AppRoutingModule } from './module/app-routing.module';
 import { LoginComponent } from './component/login/login.component';
+import {JwtInterceptor} from './interceptor/jwt-interceptor';
+import { HeaderComponent } from './sub-component/header/header.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { LoginComponent } from './component/login/login.component';
     FieldErrorMsgComponent,
     SubmitIfValidDirective,
     EditArticleDialogComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { LoginComponent } from './component/login/login.component';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: GeneralInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     MessageService
   ],
   bootstrap: [AppComponent]

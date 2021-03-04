@@ -22,3 +22,15 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.float-right {
+  float: right;
+}
+
+.margin-ssm{
+  margin: 3px;
+}
+
+.margin-sm {
+  margin: 5px;
+}
