@@ -23,7 +23,7 @@ export class GeneralInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        this.messageService.add({severity: 'error', summary: 'error', detail: 'error'});
+        this.messageService.add({severity: 'error', summary: 'Error Status: ' + error.status, detail: error.error.message});
         return throwError(error);
       }),
       finalize(() => {

@@ -15,6 +15,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.authService.getIsLogin()){
+      this.router.navigate(['wall']);
+    }
   }
 
   login(): void {
