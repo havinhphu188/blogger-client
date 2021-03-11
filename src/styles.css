@@ -17,6 +17,12 @@
   justify-content: center;
 }
 
+.centered-horizontal-vertical{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .margin-vertical-sm{
   margin-top: 10px;
   margin-bottom: 10px;

@@ -1,6 +1,14 @@
 .header {
   padding: 5px;
-  display: block;
+  display: flex;
   overflow: auto;
   background-color: #434950;
+  justify-content: space-between;
+}
+
+.brand-name {
+  margin-left: 10px;
+  font-size: xx-large;
+  color: white;
+  text-underline-style: none;
 }

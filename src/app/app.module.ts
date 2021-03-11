@@ -17,6 +17,8 @@ import { AppRoutingModule } from './module/app-routing.module';
 import { LoginComponent } from './component/login/login.component';
 import {JwtInterceptor} from './interceptor/jwt-interceptor';
 import { HeaderComponent } from './sub-component/header/header.component';
+import { AccountComponent } from './component/account/account.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { HeaderComponent } from './sub-component/header/header.component';
     SubmitIfValidDirective,
     EditArticleDialogComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    AccountComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
