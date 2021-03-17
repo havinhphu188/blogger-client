@@ -4,6 +4,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {ToastModule} from 'primeng/toast';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {FileUploadModule} from 'primeng/fileupload';
 
 @NgModule({
   exports: [
@@ -11,7 +12,8 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     InputTextModule,
     InputTextareaModule,
     ToastModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    FileUploadModule
   ]
 })
 export class PrimengModule { }

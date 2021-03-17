@@ -1,0 +1,12 @@
+<h1 class="margin-sm">Global Feed</h1>
+<div class="articles" >
+  <div class="article" *ngFor="let article of articles; index as i">
+    <div class="article-detail">
+      <div>{{article.id}}</div>
+      <div>{{article.title}}</div>
+      <div>{{article.content}}</div>
+      <div>Author: {{article.author}}</div>
+    </div>
+
+  </div>
+</div>

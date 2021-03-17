@@ -46,3 +46,7 @@ body{
   border: white;
   margin: 0px;
 }
+
+.text-white{
+  color: white;
+}

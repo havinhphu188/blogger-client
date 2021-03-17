@@ -19,6 +19,7 @@ import {JwtInterceptor} from './interceptor/jwt-interceptor';
 import { HeaderComponent } from './sub-component/header/header.component';
 import { AccountComponent } from './component/account/account.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { GlobalFeedComponent } from './component/global-feed/global-feed.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     LoginComponent,
     HeaderComponent,
     AccountComponent,
-    DashboardComponent
+    DashboardComponent,
+    GlobalFeedComponent
   ],
   imports: [
     BrowserModule,

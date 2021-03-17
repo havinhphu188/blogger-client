@@ -13,9 +13,6 @@ import {EditArticleDialogComponent} from '../../sub-component/edit-article-dialo
 })
 export class WallComponent implements OnInit {
   articles: IArticle[];
-  txtTitle: string;
-  txtContent: string;
-
   ref: DynamicDialogRef;
 
   constructor(private wallService: WallService, public dialogService: DialogService) {

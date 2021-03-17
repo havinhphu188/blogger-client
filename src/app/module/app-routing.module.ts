@@ -5,13 +5,15 @@ import {LoginComponent} from '../component/login/login.component';
 import {AuthGuard} from '../guard/auth.guard';
 import {DashboardComponent} from '../component/dashboard/dashboard.component';
 import {AccountComponent} from '../component/account/account.component';
+import {GlobalFeedComponent} from '../component/global-feed/global-feed.component';
 
 
 const routes: Routes = [
   { path: 'wall', component: WallComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: '', component: GlobalFeedComponent },
   { path: 'account', component: AccountComponent, canActivate: [AuthGuard]},
-  { path: '', component: DashboardComponent, canActivate: [AuthGuard]}
+  { path: 'dashboard', component: DashboardComponent}
 ];
 
 @NgModule({
