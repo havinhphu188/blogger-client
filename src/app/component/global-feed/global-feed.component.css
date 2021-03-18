@@ -16,3 +16,12 @@
 .article-detail {
   flex-grow: 1;
 }
+
+.article-controller {
+  width: 80px;
+}
+
+.btnControl{
+  width: 80px;
+  margin: 2px;
+}

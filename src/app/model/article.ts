@@ -3,4 +3,5 @@ export interface IArticle{
   title: string;
   content: string;
   author: string;
+  react: number;
 }

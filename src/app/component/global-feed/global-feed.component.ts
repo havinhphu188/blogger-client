@@ -15,4 +15,8 @@ export class GlobalFeedComponent implements OnInit {
     this.globalFeedService.getArticles().subscribe((data: IArticle[]) => this.articles = data);
   }
 
+  onReact(i: number): void {
+    const articleId = this.articles[i].id;
+    this.globalFeedService.react(articleId).subscribe();
+  }
 }

@@ -6,7 +6,12 @@
       <div>{{article.title}}</div>
       <div>{{article.content}}</div>
       <div>Author: {{article.author}}</div>
+      <div>React: {{article.react}}</div>
     </div>
+    <div class="article-controller">
+      <button pButton class="btnControl" label="React" (click)="onReact(i)"></button>
+    </div>
+
 
   </div>
 </div>

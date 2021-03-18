@@ -13,4 +13,8 @@ export class GlobalFeedService {
   getArticles(): Observable<IArticle[]>{
     return this.http.get<IArticle[]>('api/article/global-feed');
   }
+
+  react(articleId: number): Observable<any>{
+    return this.http.post<IArticle[]>(`api/article/react/${articleId}`, null);
+  }
 }
