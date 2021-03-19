@@ -7,14 +7,14 @@ import {Router} from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-  isLogout: boolean;
+export class HeaderComponent {
+  isLogin: boolean;
 
   constructor(private authService: AuthService, private router: Router) {
-  }
-
-  ngOnInit(): void {
-    this.isLogout = !this.authService.getIsLogin();
+    this.isLogin = authService.getIsLogin();
+    this.authService.loginAnnounced$.subscribe(isLogin => {
+      this.isLogin = isLogin;
+    });
   }
 
   logout(): void{
