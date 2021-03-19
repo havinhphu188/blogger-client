@@ -13,7 +13,7 @@ export class AuthService {
   }
 
   // Service message commands
-  announceLogin(isLogin: boolean): void{
+  private announceLogin(isLogin: boolean): void{
     this.loginAnnouncedSource.next(isLogin);
   }
 
