@@ -19,7 +19,7 @@ export class GeneralInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.totalRequests++;
-    this.loadingService.setLoading(true);
+    this.loadingService.show();
 
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
@@ -29,7 +29,7 @@ export class GeneralInterceptor implements HttpInterceptor {
       finalize(() => {
         this.totalRequests--;
         if (this.totalRequests === 0) {
-          this.loadingService.setLoading(false);
+          this.loadingService.hide();
         }
       })
     );

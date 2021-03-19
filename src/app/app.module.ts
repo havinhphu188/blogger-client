@@ -20,6 +20,7 @@ import { HeaderComponent } from './sub-component/header/header.component';
 import { AccountComponent } from './component/account/account.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { GlobalFeedComponent } from './component/global-feed/global-feed.component';
+import { LoaderComponent } from './sub-component/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { GlobalFeedComponent } from './component/global-feed/global-feed.compone
     HeaderComponent,
     AccountComponent,
     DashboardComponent,
-    GlobalFeedComponent
+    GlobalFeedComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

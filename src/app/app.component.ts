@@ -6,11 +6,6 @@ import {LoadingService} from './service/common-service/loading.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit{
-  public isLoading = true;
-  constructor(public loadingService: LoadingService) { }
-
-  ngOnInit(): void {
-    this.isLoading = this.loadingService.getLoading();
-  }
+export class AppComponent{
+  constructor() { }
 }
