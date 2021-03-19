@@ -15,6 +15,6 @@ export class GlobalFeedService {
   }
 
   react(articleId: number): Observable<any>{
-    return this.http.post<IArticle[]>(`api/article/react/${articleId}`, null);
+    return this.http.post(`api/article/react/${articleId}`, null);
   }
 }
