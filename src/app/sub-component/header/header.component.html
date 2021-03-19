@@ -5,6 +5,8 @@
   <a routerLink="/dashboard">
     <div class="text-white">Dashboard</div>
   </a>
-  <button pButton label="Logout" class="float-right"
-          (click)="logout()"></button>
+  <div class="float-right">
+    <button *ngIf="isLogout" pButton label="Logout"
+            (click)="logout()"></button>
+  </div>
 </div>
