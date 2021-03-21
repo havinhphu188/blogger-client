@@ -36,7 +36,7 @@ export class WallComponent implements OnInit {
 
     this.ref.onClose.subscribe((newArticle: IArticle) => {
       if (newArticle !== undefined) {
-        this.articles.push(newArticle);
+        this.articles.unshift(newArticle);
       }
     });
   }
