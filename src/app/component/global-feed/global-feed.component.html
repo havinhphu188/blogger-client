@@ -9,9 +9,9 @@
       <div>React: {{article.react}}</div>
     </div>
     <div class="article-controller">
-      <button pButton class="btnControl" label="React" (click)="onReact(i)"></button>
+      <button pButton [ngClass]="{'p-button-danger': article.reacted}"
+              class="btnControl"
+              label="React" (click)="onReact(i)"></button>
     </div>
-
-
   </div>
 </div>

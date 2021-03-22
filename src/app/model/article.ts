@@ -4,4 +4,5 @@ export interface IArticle{
   content: string;
   author: string;
   react: number;
+  reacted: boolean;
 }

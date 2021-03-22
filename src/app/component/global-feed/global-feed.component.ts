@@ -17,6 +17,8 @@ export class GlobalFeedComponent implements OnInit {
 
   onReact(i: number): void {
     const articleId = this.articles[i].id;
-    this.globalFeedService.react(articleId).subscribe();
+    this.articles[i].reacted = !this.articles[i].reacted;
+    this.globalFeedService.react(articleId)
+      .subscribe((response) => this.articles[i].reacted = response.isReacted);
   }
 }
