@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {WallComponent} from '../component/wall/wall.component';
 import {LoginComponent} from '../component/login/login.component';
 import {AuthGuard} from '../guard/auth.guard';
 import {DashboardComponent} from '../component/dashboard/dashboard.component';
 import {AccountComponent} from '../component/account/account.component';
 import {GlobalFeedComponent} from '../component/global-feed/global-feed.component';
+import {AuthorPageComponent} from '../component/author-page/author-page.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: GlobalFeedComponent },
   { path: 'account', component: AccountComponent, canActivate: [AuthGuard]},
-  { path: 'dashboard', component: DashboardComponent}
+  { path: 'dashboard', component: DashboardComponent},
+  { path: 'author/:author-id', component: AuthorPageComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
