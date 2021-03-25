@@ -22,6 +22,7 @@ import {DashboardComponent} from './component/dashboard/dashboard.component';
 import {GlobalFeedComponent} from './component/global-feed/global-feed.component';
 import {LoaderComponent} from './sub-component/loader/loader.component';
 import {AuthorPageComponent} from './component/author-page/author-page.component';
+import {SubscriptionComponent} from './component/subscription/subscription.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {AuthorPageComponent} from './component/author-page/author-page.component
     DashboardComponent,
     GlobalFeedComponent,
     LoaderComponent,
-    AuthorPageComponent
+    AuthorPageComponent,
+    SubscriptionComponent
   ],
   imports: [
     BrowserModule,
