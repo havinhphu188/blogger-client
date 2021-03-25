@@ -13,4 +13,8 @@ export class AuthorService {
   getAuthorInfo(authorId: number): Observable<IAuthor>{
     return this.http.get<IAuthor>(`api/author/get-info/${authorId}`);
   }
+
+  follow(authorId: number): Observable<any>{
+    return this.http.post(`api/author/subscribe/${authorId}`, null);
+  }
 }

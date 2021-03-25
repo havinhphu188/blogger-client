@@ -1,7 +1,7 @@
 <form>
   <div class="grid-container">
     <label class="label" for="title">Title</label>
-    <div class="field">
+    <div class="column-flex">
       <input class="txtTitle" id="title" type="text" required="required"
              pInputText #titleRef="ngModel" name="title"
              [(ngModel)]="article.title">
@@ -9,7 +9,7 @@
 
     </div>
     <label class="label" for="txtContent">Content</label>
-    <div class="field">
+    <div class="column-flex">
       <textarea class="txtContent" id="txtContent" type="text"
                 required="required" pInputTextarea name="content"
                 [(ngModel)]="article.content" #contentRef="ngModel"></textarea>

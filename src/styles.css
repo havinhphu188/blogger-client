@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('../node_modules/primeng/resources/themes/bootstrap4-dark-blue/theme.css');
 
-.field {
+.column-flex {
   display: flex;
   flex-direction: column;
 }

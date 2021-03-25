@@ -27,7 +27,7 @@
   resize: none;
 }
 
-.field {
+.column-flex {
   display: flex;
   flex-direction: column;
 }

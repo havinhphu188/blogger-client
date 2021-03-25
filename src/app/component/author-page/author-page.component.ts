@@ -11,13 +11,15 @@ import {IAuthor} from '../../model/author';
 export class AuthorPageComponent implements OnInit, OnDestroy {
   private sub: any;
   authorName: string;
+  authorId: number;
+  isFollowing: boolean;
 
   constructor(private route: ActivatedRoute, private authorService: AuthorService) { }
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(params => {
-      const authorId: number = +params['author-id'];
-      this.authorService.getAuthorInfo(authorId).subscribe((author: IAuthor) => {
+      this.authorId = +params['author-id'];
+      this.authorService.getAuthorInfo(this.authorId).subscribe((author: IAuthor) => {
         this.authorName = author.name;
       });
     });
@@ -26,4 +28,11 @@ export class AuthorPageComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
+
+  onFollow(): void {
+    this.isFollowing = !this.isFollowing;
+    this.authorService.follow(this.authorId)
+      .subscribe((response) => this.isFollowing = response.isSubscribed);
+  }
+
 }

@@ -1,2 +1,8 @@
-<h1 class="centered-horizontal">{{authorName}}</h1>
+<h1 class="centered-horizontal margin-sm">{{authorName}}</h1>
 <div class="centered-horizontal">user bio</div>
+<div class="centered-horizontal margin-sm">
+<button [ngClass]="{'p-button-secondary': isFollowing}"
+        pButton (click)="onFollow()"
+        label="{{isFollowing?'Subscribed': 'Subscribe'}}">
+</button>
+</div>
