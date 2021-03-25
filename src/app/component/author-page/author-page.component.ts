@@ -21,6 +21,7 @@ export class AuthorPageComponent implements OnInit, OnDestroy {
       this.authorId = +params['author-id'];
       this.authorService.getAuthorInfo(this.authorId).subscribe((author: IAuthor) => {
         this.authorName = author.name;
+        this.isFollowing = author.subscribed;
       });
     });
   }
