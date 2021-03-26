@@ -12,9 +12,8 @@ import {GlobalFeedService} from '../../service/global-feed/global-feed.service';
 })
 export class AuthorPageComponent implements OnInit, OnDestroy {
   private sub: any;
-  authorName: string;
   authorId: number;
-  isFollowing: boolean;
+  author: IAuthor;
   articles: IArticle[];
 
   constructor(private route: ActivatedRoute,
@@ -25,8 +24,7 @@ export class AuthorPageComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe(params => {
       this.authorId = +params['author-id'];
       this.authorService.getAuthorInfo(this.authorId).subscribe((author: IAuthor) => {
-        this.authorName = author.name;
-        this.isFollowing = author.subscribed;
+        this.author = author;
       });
     });
 
@@ -40,9 +38,9 @@ export class AuthorPageComponent implements OnInit, OnDestroy {
   }
 
   onFollow(): void {
-    this.isFollowing = !this.isFollowing;
+    this.author.subscribed = !this.author.subscribed;
     this.authorService.follow(this.authorId)
-      .subscribe((response) => this.isFollowing = response.isSubscribed);
+      .subscribe((response) => this.author.subscribed = response.isSubscribed);
   }
 
 }

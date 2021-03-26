@@ -5,7 +5,7 @@
   <a routerLink="/dashboard">
     <div class="text-white">Dashboard</div>
   </a>
-  <div *ngIf="isLogin">Username: {{username}}</div>
+  <div *ngIf="isLogin">User: {{username}}</div>
   <div class="float-right">
     <button *ngIf="isLogin" pButton label="Logout"
             (click)="logout()"></button>

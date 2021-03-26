@@ -1,4 +1,5 @@
 export interface IAuthor {
   name: string;
+  bio: string;
   subscribed: boolean;
 }
