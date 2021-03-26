@@ -2,6 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {AuthorService} from '../../service/author-service/author.service';
 import {IAuthor} from '../../model/author';
+import {IArticle} from '../../model/article';
+import {GlobalFeedService} from '../../service/global-feed/global-feed.service';
 
 @Component({
   selector: 'app-author-page',
@@ -13,8 +15,11 @@ export class AuthorPageComponent implements OnInit, OnDestroy {
   authorName: string;
   authorId: number;
   isFollowing: boolean;
+  articles: IArticle[];
 
-  constructor(private route: ActivatedRoute, private authorService: AuthorService) { }
+  constructor(private route: ActivatedRoute,
+              private authorService: AuthorService,
+              private globalFeedService: GlobalFeedService) { }
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(params => {
@@ -24,6 +29,10 @@ export class AuthorPageComponent implements OnInit, OnDestroy {
         this.isFollowing = author.subscribed;
       });
     });
+
+    this.globalFeedService.getAuthorFeed(this.authorId)
+      .subscribe((data: IArticle[]) => this.articles = data);
+
   }
 
   ngOnDestroy(): void {
