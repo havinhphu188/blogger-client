@@ -2,7 +2,7 @@
 <div class="centered-horizontal">{{author?.bio}}</div>
 <div class="centered-horizontal margin-sm">
 <button [ngClass]="{'p-button-secondary': author?.subscribed}"
-        pButton (click)="onFollow()"
+        pButton (click)="onSubscribe()"
         label="{{author?.subscribed?'Subscribed': 'Subscribe'}}">
 </button>
 </div>

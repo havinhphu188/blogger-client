@@ -37,7 +37,7 @@ export class AuthorPageComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  onFollow(): void {
+  onSubscribe(): void {
     this.author.subscribed = !this.author.subscribed;
     this.authorService.follow(this.authorId)
       .subscribe((response) => this.author.subscribed = response.isSubscribed);
