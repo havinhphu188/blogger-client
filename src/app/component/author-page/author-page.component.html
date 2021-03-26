@@ -1,9 +1,9 @@
-<h1 class="centered-horizontal margin-sm">{{author.name}}</h1>
-<div class="centered-horizontal">{{author.bio}}</div>
+<h1 class="centered-horizontal margin-sm">{{author?.name}}</h1>
+<div class="centered-horizontal">{{author?.bio}}</div>
 <div class="centered-horizontal margin-sm">
-<button [ngClass]="{'p-button-secondary': author.subscribed}"
+<button [ngClass]="{'p-button-secondary': author?.subscribed}"
         pButton (click)="onFollow()"
-        label="{{author.subscribed?'Subscribed': 'Subscribe'}}">
+        label="{{author?.subscribed?'Subscribed': 'Subscribe'}}">
 </button>
 </div>
 <app-feed [articles]="articles"></app-feed>
