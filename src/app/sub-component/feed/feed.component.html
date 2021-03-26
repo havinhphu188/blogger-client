@@ -4,7 +4,7 @@
       <div>{{article.id}}</div>
       <div>{{article.title}}</div>
       <div>{{article.content}}</div>
-      <div>Author: {{article.author}}</div>
+      <div>Author: <a [routerLink]="['/author', article.author.url]">{{article.author.name}} </a></div>
       <div>React: {{article.react}}</div>
     </div>
     <div class="article-controller">

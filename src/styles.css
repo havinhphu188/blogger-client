@@ -47,6 +47,6 @@ body{
   margin: 0px;
 }
 
-.text-white{
+.text-white, a{
   color: white;
 }
