@@ -1,0 +1,27 @@
+.articles{
+  margin: 30px;
+}
+
+.article{
+  margin-bottom: 10px ;
+  display: flex;
+  border: white solid 1px;
+  padding: 10px;
+}
+
+.margin{
+  margin: 10px;
+}
+
+.article-detail {
+  flex-grow: 1;
+}
+
+.article-controller {
+  width: 80px;
+}
+
+.btnControl {
+  width: 80px;
+  margin: 2px;
+}
