@@ -5,12 +5,11 @@
       <div>{{article.title}}</div>
       <div>{{article.content}}</div>
       <div>Author: <a [routerLink]="['/author', article.author.url]">{{article.author.name}} </a></div>
-      <div>React: {{article.react}}</div>
     </div>
     <div class="article-controller">
       <button pButton [ngClass]="{'p-button-danger': article.reacted}"
               class="btnControl"
-              label="React" (click)="onReact(i)"></button>
+              label="&zwnj;" (click)="onReact(i)">React({{article.react}})</button>
     </div>
   </div>
 </div>

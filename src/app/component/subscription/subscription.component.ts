@@ -15,12 +15,4 @@ export class SubscriptionComponent implements OnInit {
   ngOnInit(): void {
     this.subscriptionsFeedService.getArticles().subscribe((data: IArticle[]) => this.articles = data);
   }
-
-  onReact(i: number): void {
-    const articleId = this.articles[i].id;
-    this.articles[i].reacted = !this.articles[i].reacted;
-    this.subscriptionsFeedService.react(articleId)
-      .subscribe((response) => this.articles[i].reacted = response.isReacted);
-  }
-
 }

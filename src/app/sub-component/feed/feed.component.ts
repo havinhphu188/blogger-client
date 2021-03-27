@@ -16,7 +16,10 @@ export class FeedComponent{
     const articleId = this.articles[i].id;
     this.articles[i].reacted = !this.articles[i].reacted;
     this.globalFeedService.react(articleId)
-      .subscribe((response) => this.articles[i].reacted = response.isReacted);
+      .subscribe((response) => {
+        this.articles[i].reacted = response.isReacted;
+        this.articles[i].react = response.reaction;
+      });
   }
 
 }
