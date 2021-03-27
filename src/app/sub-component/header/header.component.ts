@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../service/common-service/auth.service';
 import {Router} from '@angular/router';
 import {AccountService} from '../../service/common-service/account.service';
+import {SearchService} from '../../service/search-service/search.service';
+import {IAuthorSearchResult} from '../../model/author-search-result';
 
 @Component({
   selector: 'app-header',
@@ -11,10 +13,12 @@ import {AccountService} from '../../service/common-service/account.service';
 export class HeaderComponent implements OnInit{
   isLogin: boolean;
   username: string;
+  searchResult: IAuthorSearchResult[];
 
   constructor(private authService: AuthService,
               private router: Router,
-              private accountService: AccountService) {
+              private accountService: AccountService,
+              private searchService: SearchService) {
     this.isLogin = authService.getIsLogin();
     this.authService.loginAnnounced$.subscribe(isLogin => {
       this.isLogin = isLogin;
@@ -39,5 +43,15 @@ export class HeaderComponent implements OnInit{
   logout(): void{
     this.authService.logout();
     this.router.navigate(['login']);
+  }
+
+  search(event: any): void {
+    this.searchService.searchAuthor(event.query).subscribe((searchResult) => {
+      this.searchResult = searchResult;
+    });
+  }
+
+  selectResult($event: any): void {
+    this.router.navigate(['/author/1']);
   }
 }
