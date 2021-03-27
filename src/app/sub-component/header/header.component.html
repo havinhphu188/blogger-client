@@ -3,7 +3,10 @@
     <div class="brand-name">Blogger-9x</div>
   </a>
   <div *ngIf="isLogin">
-    <p-autoComplete [(ngModel)]="selectedOption" [delay]="1000" [suggestions]="searchResult" (onSelect)="selectResult($event)" field="displayName" (completeMethod)="search($event)"></p-autoComplete>
+    <p-autoComplete [placeholder]="'Search for your favorite author'"
+                    [size]="50" [(ngModel)]="selectedOption" [delay]="1000"
+                    [suggestions]="searchResult" (onSelect)="selectResult($event)"
+                    field="displayName" (completeMethod)="search($event)"></p-autoComplete>
   </div>
   <a routerLink="/dashboard">
     <div class="text-white">Dashboard</div>
