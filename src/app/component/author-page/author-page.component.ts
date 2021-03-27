@@ -26,11 +26,9 @@ export class AuthorPageComponent implements OnInit, OnDestroy {
       this.authorService.getAuthorInfo(this.authorId).subscribe((author: IAuthor) => {
         this.author = author;
       });
+      this.globalFeedService.getAuthorFeed(this.authorId)
+        .subscribe((data: IArticle[]) => this.articles = data);
     });
-
-    this.globalFeedService.getAuthorFeed(this.authorId)
-      .subscribe((data: IArticle[]) => this.articles = data);
-
   }
 
   ngOnDestroy(): void {

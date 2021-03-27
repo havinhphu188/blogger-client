@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit{
   isLogin: boolean;
   username: string;
   searchResult: IAuthorSearchResult[];
+  selectedOption: any;
 
   constructor(private authService: AuthService,
               private router: Router,
@@ -52,6 +53,7 @@ export class HeaderComponent implements OnInit{
   }
 
   selectResult($event: any): void {
-    this.router.navigate(['/author/1']);
+    this.router.navigate(['/author', $event.url]);
+    this.selectedOption = '';
   }
 }
