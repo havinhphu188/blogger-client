@@ -24,6 +24,7 @@ import {LoaderComponent} from './sub-component/loader/loader.component';
 import {AuthorPageComponent} from './component/author-page/author-page.component';
 import {SubscriptionComponent} from './component/subscription/subscription.component';
 import {FeedComponent} from './sub-component/feed/feed.component';
+import {RegisterComponent} from './component/register/register.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {FeedComponent} from './sub-component/feed/feed.component';
     LoaderComponent,
     AuthorPageComponent,
     SubscriptionComponent,
-    FeedComponent
+    FeedComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

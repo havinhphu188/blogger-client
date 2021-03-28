@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit{
     this.accountService
       .getUserInfo()
       .subscribe((response) => {
-        this.username = response.username;
+        this.username = response?.username;
       });
   }
 
