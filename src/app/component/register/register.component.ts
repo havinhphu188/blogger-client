@@ -3,6 +3,7 @@ import {AuthService} from '../../service/common-service/auth.service';
 import {Router} from '@angular/router';
 import {RegisterService} from '../../service/register-service/register.service';
 import {RegisterUser} from '../../model/register-user';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-register',
@@ -16,6 +17,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private registerService: RegisterService,
               private authService: AuthService,
+              private messageService: MessageService,
               private router: Router) {
     this.newUser = new RegisterUser();
   }
@@ -27,7 +29,10 @@ export class RegisterComponent implements OnInit {
   }
 
   register(): void {
-    if (this.password !== this.retypePassword) { return; }
+    if (this.password !== this.retypePassword) {
+      this.messageService.add({severity: 'warn', summary: 'retype password did not match'});
+      return;
+    }
     this.newUser.password = this.password;
     this.registerService.registerUser(this.newUser).subscribe(
       () => {
