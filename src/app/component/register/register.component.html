@@ -1,6 +1,6 @@
 <div class="flex-row">
-  <div class="login-form">
-    <h1 class="centered-horizontal">Log In to Blogger</h1>
+  <div class="register-form">
+    <h1 class="centered-horizontal">Register</h1>
     <div class="column-flex">
       <div class="margin-vertical-sm">Username</div>
       <input pInputText [(ngModel)]="newUser.username">
@@ -18,16 +18,16 @@
 
     <div class="column-flex">
       <div class="margin-vertical-sm">Display Name</div>
-      <input class="" pInputText [(ngModel)]="newUser.displayName">
+      <input pInputText [(ngModel)]="newUser.displayName">
     </div>
 
     <div class="column-flex">
       <div class="margin-vertical-sm">Bio</div>
-      <input class="" pInputText [(ngModel)]="newUser.bio">
+      <input pInputText [(ngModel)]="newUser.bio">
     </div>
 
     <div class="centered-horizontal margin-vertical-sm">
-      <button pButton label="Log In" class="btnLogIn" (click)="register()"></button>
+      <button pButton label="Register" class="btnRegister" (click)="register()"></button>
     </div>
 
   </div>
