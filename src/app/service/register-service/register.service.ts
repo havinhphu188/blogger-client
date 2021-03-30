@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {RegisterUser} from '../../model/register-user';
 
@@ -12,5 +12,10 @@ export class RegisterService {
 
   registerUser(newUser: RegisterUser): Observable<any> {
     return this.http.post<any>(`api/account/register`, newUser);
+  }
+
+  checkIfUsernameAvailable(username: string): Observable<boolean> {
+    const params = new HttpParams().append('username', username);
+    return this.http.get<boolean>('api/account/check-if-username-unique',{params});
   }
 }

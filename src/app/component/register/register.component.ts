@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import {RegisterService} from '../../service/register-service/register.service';
 import {RegisterUser} from '../../model/register-user';
 import {MessageService} from 'primeng/api';
+import {FormControl} from '@angular/forms';
+import {UniqueUsernameValidator} from '../../validator/unique-username-validator';
 
 @Component({
   selector: 'app-register',
@@ -14,9 +16,11 @@ export class RegisterComponent implements OnInit {
   public newUser: RegisterUser;
   public retypePassword: string;
   password: string;
+  username: FormControl;
 
   constructor(private registerService: RegisterService,
               private authService: AuthService,
+              private uniqueUsernameValidator: UniqueUsernameValidator,
               private messageService: MessageService,
               private router: Router) {
     this.newUser = new RegisterUser();
@@ -26,6 +30,10 @@ export class RegisterComponent implements OnInit {
     if (this.authService.getIsLogin()){
       this.router.navigate(['wall']);
     }
+    this.username = new FormControl('', {
+      asyncValidators: [this.uniqueUsernameValidator.validate.bind(this.uniqueUsernameValidator)],
+      updateOn: 'blur'
+    });
   }
 
   register(): void {

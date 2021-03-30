@@ -3,7 +3,9 @@
     <h1 class="centered-horizontal">Register</h1>
     <div class="column-flex">
       <div class="margin-vertical-sm">Username</div>
-      <input pInputText [(ngModel)]="newUser.username">
+      <input pInputText [formControl]="username">
+      {{username.invalid}}
+      {{username.errors?.uniqueUsername}}
     </div>
 
     <div class="column-flex">
