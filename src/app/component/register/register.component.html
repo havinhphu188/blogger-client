@@ -4,18 +4,30 @@
     <div class="column-flex">
       <div class="margin-vertical-sm">Username</div>
       <input pInputText [formControl]="username">
-      {{username.invalid}}
-      {{username.errors?.uniqueUsername}}
+      <small class="p-error" *ngIf="username.errors?.uniqueUsername">
+        Username has already existed
+      </small>
     </div>
 
-    <div class="column-flex">
-      <div class="margin-vertical-sm">Password</div>
-      <input pInputText type="password" [(ngModel)]="password" autocomplete="new-password">
-    </div>
+    <div [formGroup]="password">
+      <div class="column-flex">
+        <label for="password" class="margin-vertical-sm">Password</label>
+        <input formControlName="password" id="password"
+               pInputText type="password" autocomplete="new-password">
+      </div>
 
-    <div class="column-flex">
-      <div class="margin-vertical-sm">Retype Password</div>
-      <input pInputText type="password" [(ngModel)]="retypePassword" autocomplete="new-password">
+      <div class="column-flex">
+        <div class="margin-vertical-sm">Retype Password</div>
+          <input formControlName="retypePassword" pInputText type="password"
+                 autocomplete="new-password">
+      </div>
+
+      <div *ngIf="password.invalid && (firstPassword.dirty || firstPassword.touched)
+                                   && (retypePassword.dirty || retypePassword.touched)">
+        <small class="p-error" *ngIf="password.errors?.passwordConfirm">
+          Confirm password does not match.
+        </small>
+      </div>
     </div>
 
     <div class="column-flex">

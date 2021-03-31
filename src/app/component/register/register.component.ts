@@ -4,8 +4,9 @@ import {Router} from '@angular/router';
 import {RegisterService} from '../../service/register-service/register.service';
 import {RegisterUser} from '../../model/register-user';
 import {MessageService} from 'primeng/api';
-import {FormControl} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UniqueUsernameValidator} from '../../validator/unique-username-validator';
+import {passwordConfirmValidator} from '../../validator/password-confirm-validator';
 
 @Component({
   selector: 'app-register',
@@ -14,8 +15,7 @@ import {UniqueUsernameValidator} from '../../validator/unique-username-validator
 })
 export class RegisterComponent implements OnInit {
   public newUser: RegisterUser;
-  public retypePassword: string;
-  password: string;
+  password: FormGroup;
   username: FormControl;
 
   constructor(private registerService: RegisterService,
@@ -34,19 +34,27 @@ export class RegisterComponent implements OnInit {
       asyncValidators: [this.uniqueUsernameValidator.validate.bind(this.uniqueUsernameValidator)],
       updateOn: 'blur'
     });
+
+    this.password = new FormGroup({
+      password: new FormControl('', Validators.required),
+      retypePassword: new FormControl('', Validators.required)
+    }, { validators: passwordConfirmValidator });
   }
 
   register(): void {
-    if (this.password !== this.retypePassword) {
-      this.messageService.add({severity: 'warn', summary: 'retype password did not match'});
-      return;
-    }
-    this.newUser.password = this.password;
     this.registerService.registerUser(this.newUser).subscribe(
       () => {
         this.router.navigate(['login']);
       }
     );
+  }
+
+  get retypePassword(): AbstractControl{
+    return this.password.get('retypePassword');
+  }
+
+  get firstPassword(): AbstractControl{
+    return this.password.get('password');
   }
 
 }

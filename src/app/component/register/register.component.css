@@ -17,3 +17,8 @@
   margin-top: 70px;
   width:200px;
 }
+
+.b-invalid{
+  border: darkred solid 3px;
+  border-left: darkred solid 15px;
+}
