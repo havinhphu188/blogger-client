@@ -1,15 +1,20 @@
 <div class="flex-row">
-  <div class="register-form">
+  <form class="register-form" [formGroup]="registerForm">
     <h1 class="centered-horizontal">Register</h1>
     <div class="column-flex">
-      <div class="margin-vertical-sm">Username</div>
-      <input pInputText [formControl]="username">
-      <small class="p-error" *ngIf="username.errors?.uniqueUsername">
-        Username has already existed
-      </small>
+      <label for="name" class="margin-vertical-sm">Username</label>
+      <input id="name" autocomplete="off" pInputText formControlName="username" >
+      <div *ngIf="username.invalid && username.dirty">
+        <small class="p-error" *ngIf="username.errors?.uniqueUsername">
+          Username has already existed
+        </small>
+        <small class="p-error" *ngIf="username.errors?.required">
+          Username can not be empty
+        </small>
+      </div>
     </div>
 
-    <div [formGroup]="password">
+    <div formGroupName="password">
       <div class="column-flex">
         <label for="password" class="margin-vertical-sm">Password</label>
         <input formControlName="password" id="password"
@@ -32,17 +37,25 @@
 
     <div class="column-flex">
       <div class="margin-vertical-sm">Display Name</div>
-      <input pInputText [(ngModel)]="newUser.displayName">
+      <input pInputText formControlName="displayName">
+      <div *ngIf="displayName.invalid && displayName.dirty">
+        <small class="p-error" *ngIf="displayName.errors?.uniqueDisplayName">
+          Display name has already existed
+        </small>
+        <small class="p-error" *ngIf="displayName.errors?.required">
+          Display name can not be empty
+        </small>
+      </div>
     </div>
 
     <div class="column-flex">
       <div class="margin-vertical-sm">Bio</div>
-      <input pInputText [(ngModel)]="newUser.bio">
+      <input pInputText formControlName="bio">
     </div>
 
     <div class="centered-horizontal margin-vertical-sm">
-      <button pButton label="Register" class="btnRegister" (click)="register()"></button>
+      <button pButton label="Register" class="btnRegister" [disabled]="!registerForm.valid"  (click)="register()"></button>
     </div>
 
-  </div>
+  </form>
 </div>

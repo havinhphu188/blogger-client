@@ -16,6 +16,11 @@ export class RegisterService {
 
   checkIfUsernameAvailable(username: string): Observable<boolean> {
     const params = new HttpParams().append('username', username);
-    return this.http.get<boolean>('api/account/check-if-username-unique',{params});
+    return this.http.get<boolean>('api/account/check-if-username-unique', {params});
+  }
+
+  checkIfDisplayNameAvailable(displayName: string): Observable<boolean> {
+    const params = new HttpParams().append('displayName', displayName);
+    return this.http.get<boolean>('api/account/check-if-display-name-unique', {params});
   }
 }

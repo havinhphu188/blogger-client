@@ -3,7 +3,7 @@ export const CONSTANT = {
     JWT_TOKEN: 'jwtToken',
     IS_LOGIN: 'isLogin'
   },
-  API:{
+  API: {
     AUTHENTICATE: 'api/authenticate'
   }
 };
