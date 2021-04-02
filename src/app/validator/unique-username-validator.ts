@@ -1,18 +1,12 @@
-import {Injectable} from '@angular/core';
-import {AbstractControl, AsyncValidator, ValidationErrors} from '@angular/forms';
+import {AbstractControl, AsyncValidatorFn, ValidationErrors} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {RegisterService} from '../service/register-service/register.service';
 import {map} from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class UniqueUsernameValidator implements AsyncValidator {
+export function uniqueUsernameValidator(fieldName: string, registerService: RegisterService): AsyncValidatorFn {
+  return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+    return registerService.checkIfUsernameAvailable(control.value)
+      .pipe(map(isUnique => (isUnique ? null : { uniqueUsername: true })));
+  };
 
-  constructor(private registerService: RegisterService) { }
-
-  validate(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-    return this.registerService.checkIfUsernameAvailable(control.value)
-      .pipe(  map(isUnique => (isUnique ? null : { uniqueUsername: true } )));
-  }
 }
