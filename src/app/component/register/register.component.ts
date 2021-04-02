@@ -6,8 +6,7 @@ import {RegisterUser} from '../../model/register-user';
 import {MessageService} from 'primeng/api';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {passwordConfirmValidator} from '../../validator/password-confirm-validator';
-import {UniqueDisplayNameValidator} from '../../validator/unique-display-name-validator';
-import {uniqueUsernameValidator} from '../../validator/unique-username-validator';
+import {uniqueFieldValueValidator} from '../../validator/unique-field-value-validator';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +18,6 @@ export class RegisterComponent implements OnInit {
 
   constructor(private registerService: RegisterService,
               private authService: AuthService,
-              private uniqueDisplayNameValidator: UniqueDisplayNameValidator,
               private messageService: MessageService,
               private router: Router) {
   }
@@ -31,7 +29,7 @@ export class RegisterComponent implements OnInit {
 
     this.registerForm = new FormGroup({
       username: new FormControl('', {
-        asyncValidators: [uniqueUsernameValidator('username', this.registerService)],
+        asyncValidators: [uniqueFieldValueValidator('username', this.registerService)],
         validators: Validators.required,
         updateOn: 'blur'
       }),
@@ -40,7 +38,7 @@ export class RegisterComponent implements OnInit {
         retypePassword: new FormControl('', Validators.required)
       }, { validators: passwordConfirmValidator }),
       displayName: new FormControl('', {
-        asyncValidators: [this.uniqueDisplayNameValidator.validate.bind(this.uniqueDisplayNameValidator)],
+        asyncValidators: [uniqueFieldValueValidator('displayName', this.registerService)],
         validators: Validators.required,
         updateOn: 'blur'
       }),

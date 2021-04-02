@@ -14,17 +14,10 @@ export class RegisterService {
     return this.http.post<any>(`api/account/register`, newUser);
   }
 
-  checkIfUsernameAvailable(username: string): Observable<boolean> {
+  checkIfFieldValueAvailable(fieldName: string, fieldValue: string): Observable<boolean> {
     const params = new HttpParams()
-                        .append('fieldName', 'username')
-                        .append('fieldValue', username);
-    return this.http.get<boolean>('api/account/check-if-field-unique', {params});
-  }
-
-  checkIfDisplayNameAvailable(displayName: string): Observable<boolean> {
-    const params = new HttpParams()
-                        .append('fieldName', 'displayName')
-                        .append('fieldValue', displayName);
+                        .append('fieldName', fieldName)
+                        .append('fieldValue', fieldValue);
     return this.http.get<boolean>('api/account/check-if-field-unique', {params});
   }
 }
