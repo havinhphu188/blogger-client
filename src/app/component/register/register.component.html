@@ -5,7 +5,7 @@
       <label for="name" class="margin-vertical-sm">Username</label>
       <input id="name" autocomplete="off" pInputText formControlName="username" >
       <div *ngIf="username.invalid && username.dirty">
-        <small class="p-error" *ngIf="username.errors?.uniqueUsername">
+        <small class="p-error" *ngIf="username.errors?.unique">
           Username has already existed
         </small>
         <small class="p-error" *ngIf="username.errors?.required">
@@ -39,7 +39,7 @@
       <div class="margin-vertical-sm">Display Name</div>
       <input pInputText formControlName="displayName">
       <div *ngIf="displayName.invalid && displayName.dirty">
-        <small class="p-error" *ngIf="displayName.errors?.uniqueDisplayName">
+        <small class="p-error" *ngIf="displayName.errors?.unique">
           Display name has already existed
         </small>
         <small class="p-error" *ngIf="displayName.errors?.required">

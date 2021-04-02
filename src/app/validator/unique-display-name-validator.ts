@@ -12,6 +12,6 @@ export class UniqueDisplayNameValidator implements AsyncValidator {
 
   validate(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
     return this.registerService.checkIfDisplayNameAvailable(control.value)
-      .pipe(  map(isUnique => (isUnique ? null : { uniqueDisplayName: true } )));
+      .pipe(  map(isUnique => (isUnique ? null : { unique: true } )));
   }
 }
