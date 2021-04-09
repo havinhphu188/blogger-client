@@ -1,0 +1,15 @@
+.author-preview {
+  height: 70px;
+  width: 400px;
+  border: white 2px solid;
+  color: white;
+}
+
+.display-name {
+  font-weight: bold;
+  font-size: large;
+}
+
+.bio {
+  font-style: italic;
+}

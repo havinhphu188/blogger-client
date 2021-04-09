@@ -1,1 +1,12 @@
 <h1 class="margin-sm">{{username}}</h1>
+<h2 class="margin-sm">Your subscription: </h2>
+<div *ngFor="let author of subscribedAuthors">
+  <a [routerLink]="['/author',author.url]" style="text-decoration: none">
+    <div class="author-preview margin-sm padding-sm centered-horizontal">
+      <div>
+        <div class="centered-horizontal display-name">{{author.displayName}}</div>
+        <div class="centered-horizontal bio">{{author.bio}}</div>
+      </div>
+    </div>
+  </a>
+</div>

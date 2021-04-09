@@ -12,3 +12,12 @@
   color: white;
   text-underline-style: none;
 }
+
+.panel {
+  height: 30px;
+  width: 200px;
+  border: white 2px solid;
+  color: white;
+  background-color: brown;
+}
+

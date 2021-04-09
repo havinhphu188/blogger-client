@@ -50,3 +50,7 @@ body{
 .text-white, a{
   color: white;
 }
+
+.padding-sm{
+  padding: 5px;
+}

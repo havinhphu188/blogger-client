@@ -10,9 +10,11 @@
   </div>
 
   <a routerLink="/dashboard">
-    <div class="text-white">Dashboard</div>
+    <div class="panel centered-horizontal-vertical margin-sm">Dashboard</div>
   </a>
-  <div *ngIf="isLogin">User: {{username}}</div>
+  <a routerLink="/account">
+    <div *ngIf="isLogin" class="panel centered-horizontal-vertical margin-sm">User: {{username}}</div>
+  </a>
   <div class="float-right">
     <button *ngIf="isLogin" pButton label="Logout"
             (click)="logout()"></button>
