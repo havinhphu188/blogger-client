@@ -8,6 +8,7 @@
                     [suggestions]="searchResult" (onSelect)="selectResult($event)"
                     field="displayName" (completeMethod)="search($event)"></p-autoComplete>
   </div>
+
   <a routerLink="/dashboard">
     <div class="text-white">Dashboard</div>
   </a>
@@ -15,5 +16,9 @@
   <div class="float-right">
     <button *ngIf="isLogin" pButton label="Logout"
             (click)="logout()"></button>
+
+    <button *ngIf="!isLogin" pButton label="Login" class="p-button-outlined"
+            routerLink="/login"></button>
+
   </div>
 </div>
