@@ -11,6 +11,9 @@
         <small class="p-error" *ngIf="username.errors?.required">
           Username can not be empty
         </small>
+        <small class="p-error" *ngIf="username.errors?.pattern">
+          Username can only contain character (a-z,A-Z), number(0-9), and '-'. Username can not start, or end with '-'
+        </small>
       </div>
     </div>
 
@@ -19,6 +22,9 @@
         <label for="password" class="margin-vertical-sm">Password</label>
         <input formControlName="password" id="password"
                pInputText type="password" autocomplete="new-password">
+        <small class="p-error" *ngIf="firstPassword.errors?.minLength !== null">
+          At least 4 character is required
+        </small>
       </div>
 
       <div class="column-flex">
@@ -44,6 +50,9 @@
         </small>
         <small class="p-error" *ngIf="displayName.errors?.required">
           Display name can not be empty
+        </small>
+        <small class="p-error" *ngIf="displayName.errors?.pattern">
+          Display name can contain Character and number, allow 1 space between, and it can not start or end with space.
         </small>
       </div>
     </div>

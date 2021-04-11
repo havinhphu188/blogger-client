@@ -4,7 +4,7 @@
       <div>{{article.id}}</div>
       <div>{{article.title}}</div>
       <div>{{article.content}}</div>
-      <div>Author: <a [routerLink]="['/author', article.author.url]">{{article.author.name}} </a></div>
+      <div class="text-size-large">Author: <a [routerLink]="['/author', article.author.url]" class="clickable-link">{{article.author.name}} </a></div>
     </div>
     <div class="article-controller">
       <button pButton [ngClass]="{'p-button-danger': article.reacted}"

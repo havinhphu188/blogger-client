@@ -1,5 +1,10 @@
 <h1 class="margin-sm">{{username}}</h1>
 <h2 class="margin-sm">Your subscription: </h2>
+<div *ngIf="subscribedAuthors.length == 0" class="margin-sm">Currently, you are not subscribing to any author.<br>
+  Explore new author in global feed, or search for them by name using search box.<br>
+  After subscribe, you will see their article on your subscriptions page.
+</div>
+
 <div *ngFor="let author of subscribedAuthors">
   <a [routerLink]="['/author',author.url]" style="text-decoration: none">
     <div class="author-preview margin-sm padding-sm centered-horizontal">

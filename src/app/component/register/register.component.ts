@@ -30,16 +30,16 @@ export class RegisterComponent implements OnInit {
     this.registerForm = new FormGroup({
       username: new FormControl('', {
         asyncValidators: [uniqueFieldValueValidator('username', this.registerService)],
-        validators: Validators.required,
+        validators: [Validators.required, Validators.pattern('[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?')],
         updateOn: 'blur'
       }),
       password: new FormGroup({
-        password: new FormControl('', Validators.required),
-        retypePassword: new FormControl('', Validators.required)
+        password: new FormControl('', Validators.minLength(4)),
+        retypePassword: new FormControl('', Validators.minLength(4))
       }, { validators: passwordConfirmValidator }),
       displayName: new FormControl('', {
         asyncValidators: [uniqueFieldValueValidator('displayName', this.registerService)],
-        validators: Validators.required,
+        validators: [Validators.required, Validators.pattern('[a-zA-Z0-9]([a-zA-Z0-9]+[ ]?)*[a-zA-Z0-9]')],
         updateOn: 'blur'
       }),
       bio: new FormControl('', Validators.required)

@@ -54,3 +54,11 @@ body{
 .padding-sm{
   padding: 5px;
 }
+
+.clickable-link {
+  color: #208ef1;
+}
+
+.text-size-large{
+  font-size: large;
+}

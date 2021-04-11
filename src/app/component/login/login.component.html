@@ -16,9 +16,12 @@
       <input pInputText type="password" [(ngModel)]="password">
     </div>
 
-    <a routerLink="/register">
-      <div class="text-white margin-sm">Register new account</div>
-    </a>
+    <div class="text-white margin-sm">
+      <a routerLink="/register">
+          Register new account
+      </a>
+    </div>
+
 
     <div class="centered-horizontal margin-vertical-sm">
       <button pButton label="Log In" class="btnLogIn" (click)="login()"></button>
