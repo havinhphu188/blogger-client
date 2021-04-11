@@ -4,6 +4,7 @@
     <div class="column-flex">
       <input class="txtTitle" id="title" type="text" required="required"
              pInputText #titleRef="ngModel" name="title" maxlength="255"
+             autocomplete="off"
              [(ngModel)]="title"/>
       <app-field-error-msg [fieldRef]="titleRef"></app-field-error-msg>
     </div>
