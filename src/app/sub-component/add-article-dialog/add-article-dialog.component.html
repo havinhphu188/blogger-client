@@ -3,14 +3,14 @@
     <label class="label" for="title">Title</label>
     <div class="column-flex">
       <input class="txtTitle" id="title" type="text" required="required"
-             pInputText #titleRef="ngModel" name="title"
+             pInputText #titleRef="ngModel" name="title" maxlength="255"
              [(ngModel)]="title"/>
       <app-field-error-msg [fieldRef]="titleRef"></app-field-error-msg>
     </div>
     <label class="label" for="txtContent">Content</label>
     <div class="column-flex">
       <textarea class="txtContent" id="txtContent" type="text"
-                required="required" pInputTextarea name="content"
+                required="required" pInputTextarea name="content" maxlength="1000"
                 [(ngModel)]="content" #contentRef="ngModel"></textarea>
       <app-field-error-msg [fieldRef]="contentRef"></app-field-error-msg>
     </div>
