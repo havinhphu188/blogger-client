@@ -9,7 +9,11 @@ export class AccountService {
 
   constructor(private http: HttpClient) { }
 
-  getUserInfo(): Observable<any>{
+  getSubscribedAuthor(): Observable<any>{
+    return this.http.get<any>('api/account/subscribed-author');
+  }
+
+  getUserInfo(): Observable<any> {
     return this.http.get<any>('api/account/user-info');
   }
 }

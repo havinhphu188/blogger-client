@@ -14,7 +14,7 @@ export class AccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.accountService
-      .getUserInfo()
+      .getSubscribedAuthor()
       .subscribe((response) => {
         this.username = response.username;
         this.subscribedAuthors = response.subscribedAuthors;
