@@ -1,31 +1,39 @@
-<div class="margin-sm">For non authenticated user</div>
-<a routerLink="/login">
-  <div class="panel centered-horizontal-vertical margin-sm">Login</div>
-</a>
+<div class="margin-sm" *ngIf="!isLogin">
+  <h2>Non authenticated user Dashboard</h2>
 
-<a routerLink="/register">
-  <div class="panel centered-horizontal-vertical margin-sm">Register</div>
-</a>
+  <a routerLink="/">
+    <div class="panel centered-horizontal-vertical margin-sm">Global Feed</div>
+  </a>
 
-<a routerLink="/">
-  <div class="panel centered-horizontal-vertical margin-sm">Global Feed</div>
-</a>
+  <a routerLink="/login">
+    <div class="panel centered-horizontal-vertical margin-sm">Login</div>
+  </a>
 
-<div class="margin-sm">Require Authentication</div>
+  <a routerLink="/register">
+    <div class="panel centered-horizontal-vertical margin-sm">Register</div>
+  </a>
 
-<a routerLink="/wall">
-  <div class="panel centered-horizontal-vertical margin-sm">Wall</div>
-</a>
+</div>
 
-<a routerLink="/account">
-  <div class="panel centered-horizontal-vertical margin-sm">Account</div>
-</a>
+<div class="margin-sm" *ngIf="isLogin">
+  <h2>Authenticated user Dashboard</h2>
 
-<a routerLink="/">
-  <div class="panel centered-horizontal-vertical margin-sm">Global Feed</div>
-</a>
+  <a routerLink="/subscriptions">
+    <div class="panel centered-horizontal-vertical margin-sm">Subscriptions</div>
+  </a>
 
-<a routerLink="/subscriptions">
-  <div class="panel centered-horizontal-vertical margin-sm">Subscriptions</div>
-</a>
+  <a routerLink="/">
+    <div class="panel centered-horizontal-vertical margin-sm">Global Feed</div>
+  </a>
+
+  <a routerLink="/wall">
+    <div class="panel centered-horizontal-vertical margin-sm">Wall</div>
+  </a>
+
+  <a routerLink="/account">
+    <div class="panel centered-horizontal-vertical margin-sm">Account</div>
+  </a>
+
+
+</div>
 

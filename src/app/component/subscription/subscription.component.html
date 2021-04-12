@@ -1,2 +1,6 @@
 <h1 class="margin-sm">Subscriptions</h1>
+<div *ngIf="articles.length == 0" class="margin-sm">Currently, you are not subscribing to any author.<br>
+  Explore new author in global feed, or search for them by name using search box.<br>
+  After subscribe, you will see their article on your subscriptions page.
+</div>
 <app-feed [articles]="articles"></app-feed>
