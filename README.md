@@ -1,27 +1,31 @@
-# StatefulAuthenClient
+# Blogger project
+Blogger is splited into two part
+1. Frontend (Angular): https://github.com/havinhphu188/blogger-client
+2. Backend (Spring Boot): https://github.com/havinhphu188/blogger-demo-backend  
+  
+Live demo (Deployed in heroku): https://simple-blogger-3000.herokuapp.com/  
+## Prerequisite
+- Java 11
+- nodejs
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4.
+## Setup environment for frontend
+- run `npm install` 
+- After all package is installed, run `ng serve'
+- Frontend is now served in http://localhost:4200/
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Setup environment for backend
+### Database
++ Project is using postgres as relational database
++ script: 
+  - Schema: src\main\resources\schema.sql
+  - Data for integration test: src\test\resources\data-for-testing.sql
++ username/password: By default, project is configured with username, password as below. Modification may be necessary to adapt local database. 
+  - username: postgres
+  - password: asd123
++ Create 2 database with name below:
+  - blogger-demo: import script `schema.sql`
+  - blogger-integration-test: import `schema.sql`, `data-for-testing.sql`, respectively. 
+### Run backend API
+- run `mvnw spring-boot:run`. Backend API is now served at http://localhost:8080/
+### Run unit test & integration test
+- run `mvnw test`
