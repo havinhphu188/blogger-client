@@ -12,7 +12,8 @@
           Username can not be empty
         </small>
         <small class="p-error" *ngIf="username.errors?.pattern">
-          Username can only contain character (a-z,A-Z), number(0-9), and '-'. Username can not start, or end with '-'
+          Username can only contain character (a-z,A-Z), number(0-9), '_' and '-'.
+          Username can not start, or end with '_' or '-'
         </small>
       </div>
     </div>

@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = new FormGroup({
       username: new FormControl('', {
         asyncValidators: [uniqueFieldValueValidator('username', this.registerService)],
-        validators: [Validators.required, Validators.pattern('[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?')],
+        validators: [Validators.required, Validators.pattern('[a-zA-Z0-9]([a-zA-Z0-9-_]*[a-zA-Z0-9])?')],
         updateOn: 'blur'
       }),
       password: new FormGroup({
