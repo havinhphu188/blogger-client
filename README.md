@@ -1,4 +1,6 @@
 # Blogger project
+Functional Requirement: https://bitly.com.vn/h7f7td  
+
 Blogger is splited into two part
 1. Frontend (Angular): https://github.com/havinhphu188/blogger-client
 2. Backend (Spring Boot): https://github.com/havinhphu188/blogger-demo-backend  
